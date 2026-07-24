@@ -37,3 +37,23 @@ function updateCountdown() {
 
 updateCountdown();
 setInterval(updateCountdown, 1000);
+if (envelope) {
+    envelope.addEventListener("click", () => {
+        document.getElementById("envelope").style.display = "none";
+        invitation.style.display = "block";
+
+        const music = document.getElementById("music");
+
+        music.addEventListener("loadedmetadata", function () {
+            music.currentTime = 4;
+            music.play();
+        }, { once: true });
+
+        if (music.readyState >= 1) {
+            music.currentTime = 4;
+            music.play();
+        } else {
+            music.load();
+        }
+    });
+}
