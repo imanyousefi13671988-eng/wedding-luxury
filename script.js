@@ -7,12 +7,6 @@ window.addEventListener("load", () => {
 const envelope = document.querySelector(".envelope");
 const invitation = document.getElementById("invitation");
 
-if (envelope) {
-    envelope.addEventListener("click", () => {
-        document.getElementById("envelope").style.display = "none";document.querySelector("audio").play();
-        invitation.style.display = "block";
-    });
-}
 
 const targetDate = new Date("2026-09-20T20:00:00").getTime();
 
