@@ -33,6 +33,7 @@ updateCountdown();
 setInterval(updateCountdown, 1000);
 if (envelope) {
     envelope.addEventListener("click", () => {
+        envelope.classList.add("open");
         document.getElementById("envelope").style.display = "none";
         invitation.style.display = "block";
 
