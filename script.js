@@ -41,21 +41,4 @@ setTimeout(() => {
     document.getElementById("envelope").style.display = "none";
     invitation.style.display = "block";
 }, 1000);
-    if (envelope) {
-  envelope.addEventListener("click", () => {
-    envelope.classList.add("open");
-
-    setTimeout(() => {
-      document.getElementById("envelope").style.display = "none";
-      invitation.style.display = "block";
-
-      const music = document.getElementById("music");
-      music.currentTime = 4;
-      music.play();
-
-    }, 1000); // یک ثانیه بعد از باز شدن پاکت
-  });
-}
-});
-    });
-}
+    
