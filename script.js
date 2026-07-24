@@ -40,7 +40,7 @@ if (envelope) {
 
         music.addEventListener("loadedmetadata", function () {
             music.currentTime = 4;
-            music.currentTimemusic.play();
+                music.play();
         }, { once: true });
 
         if (music.readyState >= 1) {
