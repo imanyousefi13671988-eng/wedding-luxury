@@ -41,13 +41,21 @@ setTimeout(() => {
     document.getElementById("envelope").style.display = "none";
     invitation.style.display = "block";
 }, 1000);
-        const music = document.getElementById("music");
+    if (envelope) {
+  envelope.addEventListener("click", () => {
+    envelope.classList.add("open");
 
-music.play().then(() => {
-    music.currentTime = 4;
-}).catch(() => {
-    music.currentTime = 4;
-    music.play();
+    setTimeout(() => {
+      document.getElementById("envelope").style.display = "none";
+      invitation.style.display = "block";
+
+      const music = document.getElementById("music");
+      music.currentTime = 4;
+      music.play();
+
+    }, 1000); // یک ثانیه بعد از باز شدن پاکت
+  });
+}
 });
     });
 }
