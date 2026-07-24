@@ -38,16 +38,11 @@ if (envelope) {
 
         const music = document.getElementById("music");
 
-        music.addEventListener("loadedmetadata", function () {
-            music.currentTime = 4;
-                music.play();
-        }, { once: true });
-
-        if (music.readyState >= 1) {
-            music.currentTime = 4;
-            music.play();
-        } else {
-            music.load();
-        }
+music.play().then(() => {
+    music.currentTime = 4;
+}).catch(() => {
+    music.currentTime = 4;
+    music.play();
+});
     });
 }
