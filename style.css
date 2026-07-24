@@ -92,3 +92,69 @@ box-shadow:0 10px 25px rgba(0,0,0,.2);
 display:none;
 padding:60px 15px;
 }
+.container{
+max-width:430px;
+margin:auto;
+background:#fff;
+border-radius:30px;
+padding:30px 25px;
+box-shadow:0 20px 45px rgba(0,0,0,.12);
+text-align:center;
+position:relative;
+overflow:hidden;
+}
+
+.container::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:180px;
+background:linear-gradient(180deg,#fdf6f2,#ffffff);
+z-index:0;
+}
+
+.photo-frame{
+position:relative;
+z-index:2;
+width:220px;
+height:220px;
+margin:0 auto 25px;
+border-radius:50%;
+padding:8px;
+background:linear-gradient(135deg,#d6b08c,#f7efe6,#c79a74);
+box-shadow:0 15px 35px rgba(0,0,0,.18);
+}
+
+.photo-frame img{
+width:100%;
+height:100%;
+border-radius:50%;
+object-fit:cover;
+display:block;
+border:6px solid #fff;
+}
+
+h1{
+position:relative;
+z-index:2;
+font-size:40px;
+font-family:'Cinzel',serif;
+color:#9d6d52;
+margin-bottom:15px;
+}
+
+h1 span{
+color:#c79aa4;
+padding:0 10px;
+}
+
+.invite{
+position:relative;
+z-index:2;
+font-size:18px;
+line-height:2;
+color:#666;
+margin-bottom:30px;
+}
