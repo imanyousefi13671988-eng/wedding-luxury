@@ -121,7 +121,16 @@ border-radius:35px;
 padding:25px;
 box-shadow:0 15px 40px rgba(0,0,0,.12);
 }
-.photo-frame img{
+.photo-frame{
+    width:280px;
+    margin:0 auto 25px;
+    padding:10px;
+    border:3px solid #d6b37b;
+    border-radius:28px;
+    background:#fff;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
     width:100%;
     border-radius:18px;
 }
