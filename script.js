@@ -1,76 +1,39 @@
-
-window.addEventListener("load", function () {
-
-setTimeout(function () {
-
-document.getElementById("loading").style.display = "none";
-
-document.getElementById("envelope").style.display = "flex";
-
-},1500);
-
+window.addEventListener("load", () => {
+    setTimeout(() => {
+        document.getElementById("loading").style.display = "none";
+    }, 1500);
 });
 
-document.getElementById("envelope").addEventListener("click",function(){
+const envelope = document.querySelector(".envelope");
+const invitation = document.getElementById("invitation");
 
-this.style.display="none";
-
-document.getElementById("invitation").style.display="block";
-
-});
-
-const targetDate=new Date("September 20, 2026 20:00:00").getTime();
-
-setInterval(function(){
-
-const now=new Date().getTime();
-
-const distance=targetDate-now;
-
-const days=Math.floor(distance/(1000*60*60*24));
-
-const hours=Math.floor((distance%(1000*60*60*24))/(1000*60*60));
-
-const minutes=Math.floor((distance%(1000*60*60))/(1000*60));
-
-const seconds=Math.floor((distance%(1000*60))/1000);
-
-if(document.getElementById("days")){
-
-document.getElementById("days").innerHTML=days;
-
-document.getElementById("hours").innerHTML=hours;
-
-document.getElementById("minutes").innerHTML=minutes;
-
-document.getElementById("seconds").innerHTML=seconds;
-
+if (envelope) {
+    envelope.addEventListener("click", () => {
+        document.getElementById("envelope").style.display = "none";
+        invitation.style.display = "block";
+    });
 }
 
-},1000);
+const targetDate = new Date("2026-09-20T20:00:00").getTime();
 
-const btn=document.getElementById("playMusic");
+function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
 
-const audio=document.getElementById("song");
+    if (distance <= 0) return;
 
-if(btn){
+    document.getElementById("days").textContent =
+        Math.floor(distance / (1000 * 60 * 60 * 24));
 
-btn.onclick=function(){
+    document.getElementById("hours").textContent =
+        Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 
-if(audio.paused){
+    document.getElementById("minutes").textContent =
+        Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 
-audio.play();
-
-btn.innerHTML="⏸ توقف موزیک";
-
-}else{
-
-audio.pause();
-
-btn.innerHTML="🎵 پخش موزیک";
-
+    document.getElementById("seconds").textContent =
+        Math.floor((distance % (1000 * 60)) / 1000);
 }
 
-}
-
-}
+updateCountdown();
+setInterval(updateCountdown, 1000);
