@@ -7,7 +7,6 @@ window.addEventListener("load", () => {
 const envelope = document.querySelector(".envelope");
 const invitation = document.getElementById("invitation");
 
-
 const targetDate = new Date("2026-09-20T20:00:00").getTime();
 
 function updateCountdown() {
@@ -31,14 +30,20 @@ function updateCountdown() {
 
 updateCountdown();
 setInterval(updateCountdown, 1000);
+
 if (envelope) {
     envelope.addEventListener("click", () => {
-        envelope.classList.add("open");
-        
-envelope.classList.add("open");
 
-setTimeout(() => {
-    document.getElementById("envelope").style.display = "none";
-    invitation.style.display = "block";
-}, 1000);
-    
+        envelope.classList.add("open");
+
+        setTimeout(() => {
+            document.getElementById("envelope").style.display = "none";
+            invitation.style.display = "block";
+
+            const music = document.getElementById("music");
+            music.currentTime = 4;
+            music.play().catch(() => {});
+        }, 1000);
+
+    });
+}
