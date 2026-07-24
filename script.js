@@ -36,7 +36,7 @@ if (envelope) {
         document.getElementById("envelope").style.display = "none";
         invitation.style.display = "block";
 
-        const music = document.getElementById("music");music.currentTime
+        const music = document.getElementById("music");
 
         music.addEventListener("loadedmetadata", function () {
             music.currentTime = 4;
