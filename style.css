@@ -158,3 +158,66 @@ line-height:2;
 color:#666;
 margin-bottom:30px;
 }
+.info{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:15px;
+margin:35px 0;
+}
+
+.item{
+background:#fcf8f5;
+border-radius:18px;
+padding:18px 10px;
+box-shadow:0 8px 18px rgba(0,0,0,.08);
+transition:.3s;
+}
+
+.item:hover{
+transform:translateY(-5px);
+}
+
+.icon{
+font-size:28px;
+margin-bottom:10px;
+}
+
+.item p{
+font-size:15px;
+line-height:1.8;
+color:#666;
+}
+
+.count-title{
+font-size:28px;
+color:#9d6d52;
+margin:30px 0 20px;
+font-family:'Cinzel',serif;
+}
+
+#countdown{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:12px;
+margin-bottom:35px;
+}
+
+#countdown div{
+background:#fff7f2;
+border-radius:18px;
+padding:18px 8px;
+box-shadow:0 10px 20px rgba(0,0,0,.08);
+}
+
+#countdown span{
+display:block;
+font-size:32px;
+font-weight:700;
+color:#b57b63;
+}
+
+#countdown p{
+margin-top:8px;
+font-size:14px;
+color:#777;
+}
