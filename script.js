@@ -9,7 +9,7 @@ const invitation = document.getElementById("invitation");
 
 if (envelope) {
     envelope.addEventListener("click", () => {
-        document.getElementById("envelope").style.display = "none";
+        document.getElementById("envelope").style.display = "none";document.querySelector("audio").play();
         invitation.style.display = "block";
     });
 }
