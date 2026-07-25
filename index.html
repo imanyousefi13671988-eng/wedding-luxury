@@ -4,80 +4,380 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>کارت دعوت عروسی فائزه و ایمان</title>
-    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background: #ebd8cf;
+            background-image: radial-gradient(#f7ebe3 1px, transparent 1px);
+            background-size: 20px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 15px;
+            overflow-x: hidden;
+        }
+
+        /* --- پس‌زمینه و پاکت نامه --- */
+        .envelope-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #e8d3c5;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+            transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
+        }
+
+        .envelope-container.open {
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .god-text {
+            font-family: 'Georgia', serif;
+            font-style: italic;
+            font-size: 22px;
+            color: #7d5b54;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+        }
+
+        .wax-seal-btn {
+            width: 110px;
+            height: 110px;
+            background: radial-gradient(circle at 30% 30%, #d97885, #8a3b47);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 8px 20px rgba(138, 59, 71, 0.4), inset 0 2px 5px rgba(255,255,255,0.4);
+            cursor: pointer;
+            border: 3px solid #b35261;
+            transition: transform 0.2s;
+        }
+
+        .wax-seal-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .wax-seal-btn span {
+            color: #f7e6cc;
+            font-family: 'Georgia', serif;
+            font-size: 26px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            border-bottom: 1px solid #f7e6cc;
+            padding-bottom: 2px;
+        }
+
+        .click-hint {
+            margin-top: 15px;
+            color: #8a3b47;
+            font-size: 14px;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+
+        /* --- کارت اصلی --- */
+        .card {
+            background: #fdf8f5;
+            width: 100%;
+            max-width: 400px;
+            border-radius: 24px;
+            padding: 25px 20px;
+            box-shadow: 0 15px 35px rgba(110, 70, 60, 0.15);
+            border: 1px solid #f0dfd5;
+            text-align: center;
+            position: relative;
+        }
+
+        /* قاب عکس زوج */
+        .photo-container {
+            width: 190px;
+            height: 190px;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            border: 6px solid #f2dfd5;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+            overflow: hidden;
+            background: #eee;
+        }
+
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .names {
+            font-size: 32px;
+            font-weight: 800;
+            color: #73333d;
+            margin-bottom: 12px;
+        }
+
+        .names span {
+            color: #d97885;
+            font-size: 24px;
+            margin: 0 5px;
+        }
+
+        .invitation-text {
+            color: #5a4b49;
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        /* بخش اطلاعات مراسم */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .info-card {
+            background: #f7ebe4;
+            padding: 10px 5px;
+            border-radius: 14px;
+            border: 1px solid #ebd4c8;
+        }
+
+        .info-card .icon {
+            font-size: 16px;
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        .info-card .title {
+            font-size: 11px;
+            color: #73333d;
+            font-weight: bold;
+        }
+
+        .info-card .value {
+            font-size: 11px;
+            color: #4a3e3c;
+            margin-top: 2px;
+        }
+
+        /* تایمر معکوس */
+        .timer-box {
+            background: #faf0e8;
+            border: 1px dashed #d9b8a8;
+            border-radius: 16px;
+            padding: 12px;
+            margin-bottom: 20px;
+        }
+
+        .timer-title {
+            font-size: 12px;
+            color: #8a3b47;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .timer-counts {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .timer-unit {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .timer-unit .num {
+            font-size: 18px;
+            font-weight: bold;
+            color: #73333d;
+        }
+
+        .timer-unit .label {
+            font-size: 10px;
+            color: #7a6a68;
+        }
+
+        /* موزیک پلیر */
+        .music-box {
+            background: #f4e4dc;
+            border-radius: 30px;
+            padding: 8px 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .music-info {
+            font-size: 12px;
+            color: #614a47;
+            font-weight: bold;
+        }
+
+        .play-btn {
+            background: #8a3b47;
+            color: white;
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px;
+        }
+
+        /* دکمه نشان */
+        .neshan-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: #8a3b47;
+            color: white;
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(138, 59, 71, 0.25);
+            transition: background 0.3s;
+        }
+
+        .neshan-btn:hover {
+            background: #6e2d37;
+        }
+    </style>
 </head>
 <body>
 
-    <!-- پس‌زمینه اصلی -->
-    <div class="bg-overlay"></div>
-
-    <!-- کاور پاکت نامه (انیمیشن باز شدن) -->
-    <div class="envelope-wrapper" id="envelope">
-        <div class="envelope-top">
-            <span class="god-title">In the name of god</span>
+    <!-- کاور رویی (پاکت نامه با مهر مومی) -->
+    <div class="envelope-container" id="envelope">
+        <div class="god-text">In the name of god</div>
+        <div class="wax-seal-btn" onclick="openEnvelope()">
+            <span>F | I</span>
         </div>
-        <div class="wax-seal" onclick="openEnvelope()">
-            <img src="wax-seal-fi.png" alt="Fi Stamp">
-        </div>
+        <div class="click-hint">جهت بازکردن پاکت کلیک کنید</div>
     </div>
 
-    <!-- کارت دعوت اصلی -->
-    <main class="card-container hidden" id="card">
+    <!-- کارت اصلی -->
+    <div class="card">
         
-        <!-- تصویر زوج -->
-        <div class="photo-frame">
-            <img src="couple-photo.jpg" alt="فائزه و ایمان">
+        <!-- عکس زوج (یک تصویر نمونه باکیفیت و هماهنگ با تم) -->
+        <div class="photo-container">
+            <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=600&auto=format&fit=crop" alt="عکس عروس و داماد">
         </div>
 
-        <!-- اسامی -->
-        <h1 class="couple-names">فائزه <span>♡</span> ایمان</h1>
+        <div class="names">فائزه <span>♡</span> ایمان</div>
 
         <p class="invitation-text">
             با حضور گرم‌تان در جشن آغاز زندگی مشترک‌مان<br>
             شادی‌مان را کامل کنید...
         </p>
 
-        <!-- اطلاعات مراسم -->
-        <div class="info-boxes">
-            <div class="info-item">
+        <!-- اطلاعات زمان و مکان -->
+        <div class="info-grid">
+            <div class="info-card">
                 <span class="icon">📅</span>
-                <span>۲۹ شهریور ۱۴۰۵</span>
+                <div class="title">تاریخ</div>
+                <div class="value">۲۹ شهریور ۱۴۰۵</div>
             </div>
-            <div class="info-item">
+            <div class="info-card">
                 <span class="icon">⏰</span>
-                <span>۲۰:۰۰ تا خاموشی ستارگان</span>
+                <div class="title">ساعت</div>
+                <div class="value">۲۰:۰۰ الی پایان</div>
             </div>
-            <div class="info-item">
+            <div class="info-card">
                 <span class="icon">📍</span>
-                <span>تالار رویال کردکوی</span>
+                <div class="title">مکان</div>
+                <div class="value">تالار رویال کردکوی</div>
             </div>
         </div>
 
-        <!-- شمارش معکوس -->
-        <div class="countdown-section">
-            <p>♡ تا روز شیرین ما ♡</p>
-            <div class="countdown-timer">
-                <div><span id="days">۱۲</span>روز</div>
-                <div><span id="hours">۱۵</span>ساعت</div>
-                <div><span id="minutes">۴۳</span>دقیقه</div>
-                <div><span id="seconds">۲۸</span>ثانیه</div>
+        <!-- تایمر معکوس -->
+        <div class="timer-box">
+            <div class="timer-title">♡ تا روز شیرین ما ♡</div>
+            <div class="timer-counts">
+                <div class="timer-unit"><span class="num" id="days">0</span><span class="label">روز</span></div>
+                <div class="timer-unit"><span class="num" id="hours">0</span><span class="label">ساعت</span></div>
+                <div class="timer-unit"><span class="num" id="minutes">0</span><span class="label">دقیقه</span></div>
+                <div class="timer-unit"><span class="num" id="seconds">0</span><span class="label">ثانیه</span></div>
             </div>
         </div>
 
         <!-- موزیک پلیر -->
-        <div class="music-player">
-            <p>موسیقی ما 🎵</p>
-            <audio id="bg-music" src="wedding-song.mp3"></audio>
-            <button onclick="toggleMusic()" id="play-btn">▶</button>
+        <div class="music-box">
+            <span class="music-info">🎵 موسیقی ما</span>
+            <button class="play-btn" id="playBtn" onclick="toggleAudio()">▶</button>
+            <audio id="myAudio" loop>
+                <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+            </audio>
         </div>
 
         <!-- دکمه مسیریابی -->
-        <a href="https://neshan.org/..." class="location-btn">
+        <a href="https://nshn.ir/" target="_blank" class="neshan-btn">
             📍 مشاهده مسیر در نشان
         </a>
+    </div>
 
-    </main>
+    <script>
+        // باز کردن پاکت
+        function openEnvelope() {
+            document.getElementById('envelope').classList.add('open');
+            toggleAudio(); // پخش موزیک با لمس مهر مومی
+        }
 
-    <script src="script.js"></script>
+        // کنترول موزیک
+        const audio = document.getElementById("myAudio");
+        const playBtn = document.getElementById("playBtn");
+
+        function toggleAudio() {
+            if (audio.paused) {
+                audio.play();
+                playBtn.innerText = "⏸";
+            } else {
+                audio.pause();
+                playBtn.innerText = "▶";
+            }
+        }
+
+        // تایمر معکوس
+        const weddingDate = new Date("Sep 20, 2026 20:00:00").getTime();
+
+        setInterval(function() {
+            const now = new Date().getTime();
+            const diff = weddingDate - now;
+
+            if (diff > 0) {
+                document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
+                document.getElementById("hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                document.getElementById("minutes").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                document.getElementById("seconds").innerText = Math.floor((diff % (1000 * 60)) / 1000);
+            }
+        }, 1000);
+    </script>
 </body>
 </html>
