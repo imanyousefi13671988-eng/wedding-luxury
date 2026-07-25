@@ -23,72 +23,81 @@
             min-height: 100vh;
             padding: 15px;
             overflow-x: hidden;
+            overflow-y: hidden; /* غیرفعال کردن اسکرول تا زمانی که پاکت باز نشود */
         }
 
-        /* --- پس‌زمینه و پاکت نامه --- */
+        /* --- لایه پاکت نامه و مهر مومی (لوکس) --- */
         .envelope-container {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            background: #e8d3c5;
+            background: #fdf8f5; /* کرم ملایم */
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             z-index: 100;
-            transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
+            transition: transform 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 1s ease-in-out;
+            background-image: url('https://www.transparenttextures.com/patterns/handmade-paper.png');
         }
 
+        /* استایل بعد از باز شدن */
         .envelope-container.open {
-            transform: translateY(-100%);
+            transform: translateY(-120%);
             opacity: 0;
             pointer-events: none;
         }
 
+        /* متن به نام خدا (لوکس) */
         .god-text {
             font-family: 'Georgia', serif;
             font-style: italic;
-            font-size: 22px;
+            font-size: 26px;
             color: #7d5b54;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             letter-spacing: 1px;
+            text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
         }
 
+        /* مهر مومی (خاص) */
         .wax-seal-btn {
-            width: 110px;
-            height: 110px;
-            background: radial-gradient(circle at 30% 30%, #d97885, #8a3b47);
+            width: 130px;
+            height: 130px;
+            background: radial-gradient(circle at 30% 30%, #d97885, #8a3b47); /* رنگ صورتی مایل به قهوه‌ای لوکس */
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            box-shadow: 0 8px 20px rgba(138, 59, 71, 0.4), inset 0 2px 5px rgba(255,255,255,0.4);
+            box-shadow: 0 12px 30px rgba(138, 59, 71, 0.45), inset 0 3px 7px rgba(255,255,255,0.4);
             cursor: pointer;
-            border: 3px solid #b35261;
-            transition: transform 0.2s;
+            border: 4px solid #b35261;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
         }
 
         .wax-seal-btn:hover {
-            transform: scale(1.05);
+            transform: scale(1.05) translateY(-2px);
+            box-shadow: 0 15px 35px rgba(138, 59, 71, 0.5);
         }
 
+        /* حروف مومی روی مهر */
         .wax-seal-btn span {
-            color: #f7e6cc;
+            color: #f7e6cc; /* کرم ملایم */
             font-family: 'Georgia', serif;
-            font-size: 26px;
+            font-size: 32px;
             font-weight: bold;
-            letter-spacing: 3px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-            border-bottom: 1px solid #f7e6cc;
-            padding-bottom: 2px;
+            letter-spacing: 4px;
+            text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+            border-bottom: 2px solid #f7e6cc;
+            padding-bottom: 3px;
         }
 
         .click-hint {
-            margin-top: 15px;
+            margin-top: 20px;
             color: #8a3b47;
-            font-size: 14px;
+            font-size: 15px;
             animation: pulse 1.5s infinite;
         }
 
@@ -97,103 +106,152 @@
             50% { opacity: 1; }
         }
 
-        /* --- کارت اصلی --- */
+        /* --- کارت دعوت اصلی --- */
         .card {
             background: #fdf8f5;
             width: 100%;
-            max-width: 400px;
-            border-radius: 24px;
-            padding: 25px 20px;
-            box-shadow: 0 15px 35px rgba(110, 70, 60, 0.15);
+            max-width: 420px;
+            border-radius: 28px;
+            padding: 0; /* عکس به لبه‌ها بچسبد */
+            box-shadow: 0 20px 45px rgba(110, 70, 60, 0.18);
             border: 1px solid #f0dfd5;
             text-align: center;
-            position: relative;
+            overflow: hidden; /* برای این‌که عکس و فریم از کارت بیرون نزند */
+            transition: opacity 0.5s ease-in-out;
+            opacity: 0;
+            visibility: hidden;
         }
 
-        /* قاب عکس زوج */
+        .card.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* --- عکس شما با فریم طلایی --- */
         .photo-container {
-            width: 190px;
-            height: 190px;
-            margin: 0 auto 15px;
-            border-radius: 50%;
-            border: 6px solid #f2dfd5;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.08);
-            overflow: hidden;
-            background: #eee;
+            width: 100%;
+            position: relative;
+            margin-bottom: 20px;
         }
 
+        /* تصویر شما */
         .photo-container img {
             width: 100%;
-            height: 100%;
+            height: auto;
             object-fit: cover;
+            display: block;
+        }
+
+        /* فریم طلایی لوکس (دقیقاً مثل تصویر) */
+        .gold-frame {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 10px solid;
+            border-image: linear-gradient(to bottom right, #d4af37, #f7e6cc, #d4af37) 1;
+            pointer-events: none; /* تا روی عکس کلیک نشود */
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.1);
+        }
+
+        /* تزئینات گوشه‌ها */
+        .gold-frame::before,
+        .gold-frame::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        /* گوشه بالا راست */
+        .gold-frame::before {
+            top: 5px;
+            right: 5px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="%23d4af37" d="M10,0 C25,0 50,15 50,40 C50,65 25,80 10,80 C5,80 0,75 0,70 L0,10 C0,5 5,0 10,0 Z M15,5 C8,5 5,8 5,15 L5,65 C5,72 8,75 15,75 C22,75 40,60 40,40 C40,20 22,5 15,5 Z"/></svg>');
+        }
+
+        /* گوشه پایین چپ */
+        .gold-frame::after {
+            bottom: 5px;
+            left: 5px;
+            transform: rotate(180deg);
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="%23d4af37" d="M10,0 C25,0 50,15 50,40 C50,65 25,80 10,80 C5,80 0,75 0,70 L0,10 C0,5 5,0 10,0 Z M15,5 C8,5 5,8 5,15 L5,65 C5,72 8,75 15,75 C22,75 40,60 40,40 C40,20 22,5 15,5 Z"/></svg>');
+        }
+
+        /* سایر بخش‌های کارت */
+        .card-content {
+            padding: 0 25px 30px;
         }
 
         .names {
-            font-size: 32px;
+            font-size: 34px;
             font-weight: 800;
             color: #73333d;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
         }
 
         .names span {
             color: #d97885;
-            font-size: 24px;
-            margin: 0 5px;
+            font-size: 26px;
+            margin: 0 7px;
         }
 
         .invitation-text {
             color: #5a4b49;
-            font-size: 14px;
+            font-size: 15px;
             line-height: 1.8;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         /* بخش اطلاعات مراسم */
         .info-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
-            margin-bottom: 20px;
+            gap: 10px;
+            margin-bottom: 25px;
         }
 
         .info-card {
             background: #f7ebe4;
-            padding: 10px 5px;
-            border-radius: 14px;
+            padding: 12px 6px;
+            border-radius: 16px;
             border: 1px solid #ebd4c8;
         }
 
         .info-card .icon {
-            font-size: 16px;
-            margin-bottom: 4px;
+            font-size: 18px;
+            margin-bottom: 5px;
             display: block;
         }
 
         .info-card .title {
-            font-size: 11px;
+            font-size: 12px;
             color: #73333d;
             font-weight: bold;
         }
 
         .info-card .value {
-            font-size: 11px;
+            font-size: 12px;
             color: #4a3e3c;
-            margin-top: 2px;
+            margin-top: 3px;
         }
 
         /* تایمر معکوس */
         .timer-box {
             background: #faf0e8;
             border: 1px dashed #d9b8a8;
-            border-radius: 16px;
-            padding: 12px;
-            margin-bottom: 20px;
+            border-radius: 18px;
+            padding: 15px;
+            margin-bottom: 25px;
         }
 
         .timer-title {
-            font-size: 12px;
+            font-size: 13px;
             color: #8a3b47;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             font-weight: bold;
         }
 
@@ -209,29 +267,29 @@
         }
 
         .timer-unit .num {
-            font-size: 18px;
+            font-size: 20px;
             font-weight: bold;
             color: #73333d;
         }
 
         .timer-unit .label {
-            font-size: 10px;
+            font-size: 11px;
             color: #7a6a68;
         }
 
         /* موزیک پلیر */
         .music-box {
             background: #f4e4dc;
-            border-radius: 30px;
-            padding: 8px 15px;
+            border-radius: 35px;
+            padding: 10px 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .music-info {
-            font-size: 12px;
+            font-size: 13px;
             color: #614a47;
             font-weight: bold;
         }
@@ -240,14 +298,14 @@
             background: #8a3b47;
             color: white;
             border: none;
-            width: 32px;
-            height: 32px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             cursor: pointer;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 12px;
+            font-size: 14px;
         }
 
         /* دکمه نشان */
@@ -255,26 +313,27 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 10px;
             background: #8a3b47;
             color: white;
             text-decoration: none;
-            padding: 12px;
-            border-radius: 25px;
-            font-size: 14px;
+            padding: 14px;
+            border-radius: 30px;
+            font-size: 15px;
             font-weight: bold;
-            box-shadow: 0 4px 12px rgba(138, 59, 71, 0.25);
-            transition: background 0.3s;
+            box-shadow: 0 6px 18px rgba(138, 59, 71, 0.3);
+            transition: background 0.3s, transform 0.2s;
         }
 
         .neshan-btn:hover {
             background: #6e2d37;
+            transform: translateY(-2px);
         }
     </style>
 </head>
 <body>
 
-    <!-- کاور رویی (پاکت نامه با مهر مومی) -->
+    <!-- لایه پاکت نامه و مهر مومی (لوکس) -->
     <div class="envelope-container" id="envelope">
         <div class="god-text">In the name of god</div>
         <div class="wax-seal-btn" onclick="openEnvelope()">
@@ -283,70 +342,76 @@
         <div class="click-hint">جهت بازکردن پاکت کلیک کنید</div>
     </div>
 
-    <!-- کارت اصلی -->
-    <div class="card">
+    <!-- کارت اصلی با عکس شما -->
+    <div class="card" id="card">
         
-        <!-- عکس زوج (یک تصویر نمونه باکیفیت و هماهنگ با تم) -->
+        <!-- عکس شما با فریم طلایی -->
         <div class="photo-container">
-            <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=600&auto=format&fit=crop" alt="عکس عروس و داماد">
+            <img src="my-wedding-photo.jpg" alt="عکس عروس و داماد فائزه و ایمان">
+            <div class="gold-frame"></div>
         </div>
 
-        <div class="names">فائزه <span>♡</span> ایمان</div>
+        <!-- محتوای متنی کارت -->
+        <div class="card-content">
+            <div class="names">فائزه <span>♡</span> ایمان</div>
 
-        <p class="invitation-text">
-            با حضور گرم‌تان در جشن آغاز زندگی مشترک‌مان<br>
-            شادی‌مان را کامل کنید...
-        </p>
+            <p class="invitation-text">
+                با حضور گرم‌تان در جشن آغاز زندگی مشترک‌مان<br>
+                شادی‌مان را کامل کنید...
+            </p>
 
-        <!-- اطلاعات زمان و مکان -->
-        <div class="info-grid">
-            <div class="info-card">
-                <span class="icon">📅</span>
-                <div class="title">تاریخ</div>
-                <div class="value">۲۹ شهریور ۱۴۰۵</div>
+            <!-- اطلاعات زمان و مکان -->
+            <div class="info-grid">
+                <div class="info-card">
+                    <span class="icon">📅</span>
+                    <div class="title">تاریخ</div>
+                    <div class="value">۲۹ شهریور ۱۴۰۵</div>
+                </div>
+                <div class="info-card">
+                    <span class="icon">⏰</span>
+                    <div class="title">ساعت</div>
+                    <div class="value">۲۰:۰۰ الی پایان</div>
+                </div>
+                <div class="info-card">
+                    <span class="icon">📍</span>
+                    <div class="title">مکان</div>
+                    <div class="value">تالار رویال کردکوی</div>
+                </div>
             </div>
-            <div class="info-card">
-                <span class="icon">⏰</span>
-                <div class="title">ساعت</div>
-                <div class="value">۲۰:۰۰ الی پایان</div>
+
+            <!-- تایمر معکوس -->
+            <div class="timer-box">
+                <div class="timer-title">♡ تا روز شیرین ما ♡</div>
+                <div class="timer-counts">
+                    <div class="timer-unit"><span class="num" id="days">0</span><span class="label">روز</span></div>
+                    <div class="timer-unit"><span class="num" id="hours">0</span><span class="label">ساعت</span></div>
+                    <div class="timer-unit"><span class="num" id="minutes">0</span><span class="label">دقیقه</span></div>
+                    <div class="timer-unit"><span class="num" id="seconds">0</span><span class="label">ثانیه</span></div>
+                </div>
             </div>
-            <div class="info-card">
-                <span class="icon">📍</span>
-                <div class="title">مکان</div>
-                <div class="value">تالار رویال کردکوی</div>
+
+            <!-- موزیک پلیر -->
+            <div class="music-box">
+                <span class="music-info">🎵 موسیقی ما</span>
+                <button class="play-btn" id="playBtn" onclick="toggleAudio()">▶</button>
+                <audio id="myAudio" loop>
+                    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                </audio>
             </div>
+
+            <!-- دکمه مسیریابی -->
+            <a href="https://nshn.ir/" target="_blank" class="neshan-btn">
+                📍 مشاهده مسیر در نشان
+            </a>
         </div>
-
-        <!-- تایمر معکوس -->
-        <div class="timer-box">
-            <div class="timer-title">♡ تا روز شیرین ما ♡</div>
-            <div class="timer-counts">
-                <div class="timer-unit"><span class="num" id="days">0</span><span class="label">روز</span></div>
-                <div class="timer-unit"><span class="num" id="hours">0</span><span class="label">ساعت</span></div>
-                <div class="timer-unit"><span class="num" id="minutes">0</span><span class="label">دقیقه</span></div>
-                <div class="timer-unit"><span class="num" id="seconds">0</span><span class="label">ثانیه</span></div>
-            </div>
-        </div>
-
-        <!-- موزیک پلیر -->
-        <div class="music-box">
-            <span class="music-info">🎵 موسیقی ما</span>
-            <button class="play-btn" id="playBtn" onclick="toggleAudio()">▶</button>
-            <audio id="myAudio" loop>
-                <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-            </audio>
-        </div>
-
-        <!-- دکمه مسیریابی -->
-        <a href="https://nshn.ir/" target="_blank" class="neshan-btn">
-            📍 مشاهده مسیر در نشان
-        </a>
     </div>
 
     <script>
         // باز کردن پاکت
         function openEnvelope() {
             document.getElementById('envelope').classList.add('open');
+            document.getElementById('card').classList.add('show');
+            document.body.style.overflowY = 'auto'; // فعال کردن اسکرول
             toggleAudio(); // پخش موزیک با لمس مهر مومی
         }
 
