@@ -506,3 +506,175 @@ box-shadow:0 12px 24px rgba(0,0,0,.08);
 display:flex;
 
 flex-direction
+/* =========================
+   MUSIC
+========================= */
+
+.music-player{
+
+margin-top:35px;
+
+text-align:center;
+
+}
+
+#playMusic{
+
+background:#b57b84;
+
+color:#fff;
+
+padding:14px 32px;
+
+border-radius:40px;
+
+font-size:16px;
+
+transition:.35s;
+
+box-shadow:0 10px 25px rgba(181,123,132,.35);
+
+}
+
+#playMusic:hover{
+
+transform:translateY(-3px);
+
+background:#9e6670;
+
+}
+
+/* =========================
+   LOCATION BUTTON
+========================= */
+
+.location-btn{
+
+display:block;
+
+margin:25px auto 0;
+
+width:100%;
+
+max-width:260px;
+
+text-align:center;
+
+background:#d7b46a;
+
+color:#fff;
+
+padding:15px;
+
+border-radius:40px;
+
+font-size:16px;
+
+font-weight:600;
+
+transition:.35s;
+
+box-shadow:0 12px 25px rgba(215,180,106,.35);
+
+}
+
+.location-btn:hover{
+
+background:#caa052;
+
+transform:translateY(-3px);
+
+}
+
+/* =========================
+   OPEN ANIMATION
+========================= */
+
+.envelope.open .envelope-top{
+
+transform:rotateX(180deg);
+
+}
+
+.envelope.open .letter{
+
+transform:translate(-50%,-260px);
+
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:480px){
+
+.envelope{
+
+width:320px;
+
+}
+
+.envelope-body{
+
+height:170px;
+
+}
+
+.envelope-top{
+
+height:170px;
+
+}
+
+.letter{
+
+width:290px;
+
+}
+
+.photo-frame{
+
+width:180px;
+height:180px;
+
+}
+
+.gold-ring{
+
+width:180px;
+height:180px;
+
+}
+
+.photo{
+
+width:158px;
+height:158px;
+
+}
+
+.couple-name{
+
+font-size:32px;
+
+}
+
+.info-box{
+
+grid-template-columns:1fr;
+
+}
+
+#countdown{
+
+gap:8px;
+
+}
+
+.time-box{
+
+width:68px;
+
+height:84px;
+
+}
