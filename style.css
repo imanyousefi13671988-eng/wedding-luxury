@@ -100,7 +100,7 @@ background:linear-gradient(180deg,#faf7f3,#efe4da);
 .envelope{
 
 position:relative;
-
+margin:auto;
 width:360px;
 height:250px;
 
