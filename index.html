@@ -1,81 +1,83 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-
-<title>دعوتنامه عروسی</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Vazirmatn:wght@300;400;500;700&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>کارت دعوت عروسی فائزه و ایمان</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<section id="envelopePage">
+    <!-- پس‌زمینه اصلی -->
+    <div class="bg-overlay"></div>
 
-<div class="envelope">
+    <!-- کاور پاکت نامه (انیمیشن باز شدن) -->
+    <div class="envelope-wrapper" id="envelope">
+        <div class="envelope-top">
+            <span class="god-title">In the name of god</span>
+        </div>
+        <div class="wax-seal" onclick="openEnvelope()">
+            <img src="wax-seal-fi.png" alt="Fi Stamp">
+        </div>
+    </div>
 
-<div class="letter">
+    <!-- کارت دعوت اصلی -->
+    <main class="card-container hidden" id="card">
+        
+        <!-- تصویر زوج -->
+        <div class="photo-frame">
+            <img src="couple-photo.jpg" alt="فائزه و ایمان">
+        </div>
 
-<div class="letter-content">
+        <!-- اسامی -->
+        <h1 class="couple-names">فائزه <span>♡</span> ایمان</h1>
 
-<h2>به نام عشق</h2>
+        <p class="invitation-text">
+            با حضور گرم‌تان در جشن آغاز زندگی مشترک‌مان<br>
+            شادی‌مان را کامل کنید...
+        </p>
 
-<p>با افتخار از حضور گرم شما در جشن پیوند</p>
+        <!-- اطلاعات مراسم -->
+        <div class="info-boxes">
+            <div class="info-item">
+                <span class="icon">📅</span>
+                <span>۲۹ شهریور ۱۴۰۵</span>
+            </div>
+            <div class="info-item">
+                <span class="icon">⏰</span>
+                <span>۲۰:۰۰ تا خاموشی ستارگان</span>
+            </div>
+            <div class="info-item">
+                <span class="icon">📍</span>
+                <span>تالار رویال کردکوی</span>
+            </div>
+        </div>
 
-<h1>فائزه <span>♡</span> ایمان</h1>
+        <!-- شمارش معکوس -->
+        <div class="countdown-section">
+            <p>♡ تا روز شیرین ما ♡</p>
+            <div class="countdown-timer">
+                <div><span id="days">۱۲</span>روز</div>
+                <div><span id="hours">۱۵</span>ساعت</div>
+                <div><span id="minutes">۴۳</span>دقیقه</div>
+                <div><span id="seconds">۲۸</span>ثانیه</div>
+            </div>
+        </div>
 
-<p class="openText">
-برای مشاهده دعوتنامه
-<br>
-روی پاکت لمس کنید
-</p>
+        <!-- موزیک پلیر -->
+        <div class="music-player">
+            <p>موسیقی ما 🎵</p>
+            <audio id="bg-music" src="wedding-song.mp3"></audio>
+            <button onclick="toggleMusic()" id="play-btn">▶</button>
+        </div>
 
-</div>
+        <!-- دکمه مسیریابی -->
+        <a href="https://neshan.org/..." class="location-btn">
+            📍 مشاهده مسیر در نشان
+        </a>
 
-</div>
+    </main>
 
-<div class="envelope-top"></div>
-
-<div class="envelope-body"></div>
-
-<div class="seal">
-
-<span>F</span>
-
-<div class="line"></div>
-
-<span>I</span>
-
-</div>
-
-</div>
-
-</section>
-
-<section id="invitation">
-
-<div class="card">
-
-<img src="photo.jpg" class="photo">
-
-<h2>فائزه ♡ ایمان</h2>
-
-<p>
-با افتخار از حضور ارزشمند شما
-در جشن ازدواجمان دعوت می‌کنیم.
-</p>
-
-</div>
-
-</section>
-
-<script src="script.js"></script>
-
+    <script src="script.js"></script>
 </body>
 </html>
