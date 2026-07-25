@@ -406,3 +406,17 @@
     </script>
 </body>
 </html>
+<audio id="bgMusic" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const audio = document.getElementById("bgMusic");
+
+window.addEventListener("load", () => {
+    audio.currentTime = 40; // شروع از ثانیه 40
+    audio.play().catch(() => {
+        console.log("Autoplay blocked by browser");
+    });
+});
+</script>
