@@ -1,49 +1,55 @@
+// =========================
+// LOADING
+// =========================
+
 window.addEventListener("load", () => {
-    setTimeout(() => {
-        document.getElementById("loading").style.display = "none";
-    }, 1500);
+
+setTimeout(() => {
+
+document.getElementById("loading").style.display = "none";
+
+},1500);
+
 });
 
-const envelope = document.querySelector(".envelope");
-const invitation = document.getElementById("invitation");
+// =========================
+// ELEMENTS
+// =========================
 
-const targetDate = new Date("2026-09-20T20:00:00").getTime();
+const envelope=document.querySelector(".envelope");
 
-function updateCountdown() {
-    const now = new Date().getTime();
-    const distance = targetDate - now;
+const invitation=document.getElementById("invitation");
 
-    if (distance <= 0) return;
+const playBtn=document.getElementById("playMusic");
 
-    document.getElementById("days").textContent =
-        Math.floor(distance / (1000 * 60 * 60 * 24));
+const music=document.getElementById("music");
 
-    document.getElementById("hours").textContent =
-        Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+// =========================
+// OPEN ENVELOPE
+// =========================
 
-    document.getElementById("minutes").textContent =
-        Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+envelope.addEventListener("click",()=>{
 
-    document.getElementById("seconds").textContent =
-        Math.floor((distance % (1000 * 60)) / 1000);
-}
+envelope.classList.add("open");
 
-updateCountdown();
-setInterval(updateCountdown, 1000);
+setTimeout(()=>{
 
-if (envelope) {
-    envelope.addEventListener("click", () => {
+document.getElementById("envelopePage").style.display="none";
 
-        envelope.classList.add("open");
+invitation.style.display="block";
 
-        setTimeout(() => {
-            document.getElementById("envelope").style.display = "none";
-            invitation.style.display = "block";
+window.scrollTo({
 
-            const music = document.getElementById("music");
-            music.currentTime = 4;
-            music.play().catch(() => {});
-        }, 1000);
+top:0,
 
-    });
-}
+behavior:"smooth"
+
+});
+
+music.currentTime=4;
+
+music.play();
+
+},1400);
+
+});
