@@ -192,7 +192,7 @@ body{
     gap:8px;
     z-index:5;
     font-size:22px;
-    font-weight:bold;
+    font-weight:bold;z-index:5;
 }
 
 .line{
