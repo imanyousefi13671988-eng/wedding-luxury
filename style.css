@@ -19,10 +19,15 @@ overflow:hidden;
 /* ENVELOPE */
 
 #envelopePage{
-width:100%;
-display:flex;
-justify-content:center;
-align-items:center;
+    width:100%;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:fixed;
+    inset:0;
+    background:#f6f0ea;
+    z-index:9999;
 }
 
 .envelope{
