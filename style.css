@@ -417,3 +417,92 @@ color:#75645d;
 margin-bottom:35px;
 
 }
+/* =========================
+   INFO BOX
+========================= */
+
+.info-box{
+
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:12px;
+
+margin:35px 0;
+
+}
+
+.info-box div{
+
+background:#fcf7f2;
+
+border:1px solid #ead7c9;
+
+border-radius:18px;
+
+padding:18px 10px;
+
+text-align:center;
+
+box-shadow:0 8px 20px rgba(0,0,0,.05);
+
+}
+
+.info-box h4{
+
+font-size:15px;
+
+color:#b07b81;
+
+margin-bottom:10px;
+
+}
+
+.info-box p{
+
+font-size:14px;
+
+color:#6d5b55;
+
+line-height:24px;
+
+}
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+#countdown{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+gap:12px;
+
+direction:ltr;
+
+margin:45px 0;
+
+flex-wrap:nowrap;
+
+}
+
+.time-box{
+
+width:78px;
+
+height:92px;
+
+background:#fff;
+
+border-radius:18px;
+
+box-shadow:0 12px 24px rgba(0,0,0,.08);
+
+display:flex;
+
+flex-direction
