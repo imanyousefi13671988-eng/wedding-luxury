@@ -158,3 +158,134 @@ height:180px;
 background:#dcc0a7;
 
 clip-path:polygon(0 0,
+/* =========================
+   LETTER
+========================= */
+
+.letter{
+
+position:absolute;
+
+left:50%;
+bottom:10px;
+
+transform:translateX(-50%);
+
+width:320px;
+height:470px;
+
+background:#fffdfb;
+
+border-radius:20px;
+
+box-shadow:
+0 25px 50px rgba(0,0,0,.18);
+
+z-index:3;
+
+transition:1s;
+
+overflow:hidden;
+
+}
+
+.letter-content{
+
+padding:40px 28px;
+
+text-align:center;
+
+}
+
+.letter-content h2{
+
+font-family:'Cinzel',serif;
+
+font-size:30px;
+
+color:#b67d86;
+
+margin-bottom:20px;
+
+}
+
+.letter-content p{
+
+font-size:17px;
+
+line-height:34px;
+
+color:#76645d;
+
+}
+
+.letter-content h1{
+
+margin-top:25px;
+
+margin-bottom:25px;
+
+font-size:42px;
+
+font-family:'Cinzel',serif;
+
+font-weight:700;
+
+color:#8e6467;
+
+}
+
+.letter-content h1 span{
+
+margin:0 15px;
+
+color:#d3a3aa;
+
+}
+
+.openText{
+
+margin-top:30px;
+
+font-size:16px;
+
+color:#b07c81;
+
+}
+
+/* =========================
+   INVITATION
+========================= */
+
+#invitation{
+
+display:none;
+
+padding:70px 18px;
+
+background:#f8f4ef;
+
+min-height:100vh;
+
+}
+
+.card{
+
+position:relative;
+
+max-width:430px;
+
+margin:auto;
+
+background:#fffdfb;
+
+border-radius:35px;
+
+padding:45px 25px 60px;
+
+box-shadow:
+0 20px 60px rgba(0,0,0,.12);
+
+overflow:hidden;
+
+}
