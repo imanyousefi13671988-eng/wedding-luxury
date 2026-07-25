@@ -289,3 +289,131 @@ box-shadow:
 overflow:hidden;
 
 }
+/* =========================
+   PHOTO
+========================= */
+
+.photo-frame{
+
+position:relative;
+
+width:210px;
+height:210px;
+
+margin:20px auto 30px;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+}
+
+.gold-ring{
+
+position:absolute;
+
+width:210px;
+height:210px;
+
+border-radius:50%;
+
+border:6px solid #d7b46a;
+
+box-shadow:
+0 0 0 8px #f7edd2,
+0 15px 30px rgba(0,0,0,.12);
+
+}
+
+.photo{
+
+width:185px;
+height:185px;
+
+border-radius:50%;
+
+object-fit:cover;
+
+z-index:2;
+
+border:6px solid #fff;
+
+}
+
+/* =========================
+   FLOWERS
+========================= */
+
+.flowers{
+
+position:absolute;
+
+width:120px;
+
+z-index:1;
+
+pointer-events:none;
+
+}
+
+.flower-left{
+
+top:20px;
+
+left:-15px;
+
+transform:rotate(-8deg);
+
+}
+
+.flower-right{
+
+top:20px;
+
+right:-15px;
+
+transform:scaleX(-1) rotate(-8deg);
+
+}
+
+/* =========================
+   NAMES
+========================= */
+
+.couple-name{
+
+text-align:center;
+
+font-size:38px;
+
+font-family:'Cinzel',serif;
+
+color:#9d6e73;
+
+margin-bottom:20px;
+
+}
+
+.couple-name span{
+
+margin:0 12px;
+
+color:#d5a0a8;
+
+font-size:30px;
+
+}
+
+.invite-text{
+
+text-align:center;
+
+font-size:17px;
+
+line-height:34px;
+
+color:#75645d;
+
+margin-bottom:35px;
+
+}
