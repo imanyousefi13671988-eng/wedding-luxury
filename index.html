@@ -23,7 +23,7 @@
             min-height: 100vh;
             padding: 15px;
             overflow-x: hidden;
-            overflow-y: hidden; /* غیرفعال کردن اسکرول تا زمانی که پاکت باز نشود */
+            overflow-y: hidden;
         }
 
         /* --- لایه پاکت نامه و مهر مومی (لوکس) --- */
@@ -33,7 +33,7 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-            background: #fdf8f5; /* کرم ملایم */
+            background: #fdf8f5;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -43,14 +43,12 @@
             background-image: url('https://www.transparenttextures.com/patterns/handmade-paper.png');
         }
 
-        /* استایل بعد از باز شدن */
         .envelope-container.open {
             transform: translateY(-120%);
             opacity: 0;
             pointer-events: none;
         }
 
-        /* متن به نام خدا (لوکس) */
         .god-text {
             font-family: 'Georgia', serif;
             font-style: italic;
@@ -61,11 +59,10 @@
             text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
         }
 
-        /* مهر مومی (خاص) */
         .wax-seal-btn {
             width: 130px;
             height: 130px;
-            background: radial-gradient(circle at 30% 30%, #d97885, #8a3b47); /* رنگ صورتی مایل به قهوه‌ای لوکس */
+            background: radial-gradient(circle at 30% 30%, #d97885, #8a3b47);
             border-radius: 50%;
             display: flex;
             justify-content: center;
@@ -82,9 +79,8 @@
             box-shadow: 0 15px 35px rgba(138, 59, 71, 0.5);
         }
 
-        /* حروف مومی روی مهر */
         .wax-seal-btn span {
-            color: #f7e6cc; /* کرم ملایم */
+            color: #f7e6cc;
             font-family: 'Georgia', serif;
             font-size: 32px;
             font-weight: bold;
@@ -112,11 +108,11 @@
             width: 100%;
             max-width: 420px;
             border-radius: 28px;
-            padding: 0; /* عکس به لبه‌ها بچسبد */
+            padding: 0;
             box-shadow: 0 20px 45px rgba(110, 70, 60, 0.18);
             border: 1px solid #f0dfd5;
             text-align: center;
-            overflow: hidden; /* برای این‌که عکس و فریم از کارت بیرون نزند */
+            overflow: hidden;
             transition: opacity 0.5s ease-in-out;
             opacity: 0;
             visibility: hidden;
@@ -127,14 +123,12 @@
             visibility: visible;
         }
 
-        /* --- عکس شما با فریم طلایی --- */
         .photo-container {
             width: 100%;
             position: relative;
             margin-bottom: 20px;
         }
 
-        /* تصویر شما */
         .photo-container img {
             width: 100%;
             height: auto;
@@ -142,7 +136,6 @@
             display: block;
         }
 
-        /* فریم طلایی لوکس (دقیقاً مثل تصویر) */
         .gold-frame {
             position: absolute;
             top: 0;
@@ -151,37 +144,10 @@
             height: 100%;
             border: 10px solid;
             border-image: linear-gradient(to bottom right, #d4af37, #f7e6cc, #d4af37) 1;
-            pointer-events: none; /* تا روی عکس کلیک نشود */
+            pointer-events: none;
             box-shadow: inset 0 0 15px rgba(0,0,0,0.1);
         }
 
-        /* تزئینات گوشه‌ها */
-        .gold-frame::before,
-        .gold-frame::after {
-            content: '';
-            position: absolute;
-            width: 50px;
-            height: 50px;
-            background-size: contain;
-            background-repeat: no-repeat;
-        }
-
-        /* گوشه بالا راست */
-        .gold-frame::before {
-            top: 5px;
-            right: 5px;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="%23d4af37" d="M10,0 C25,0 50,15 50,40 C50,65 25,80 10,80 C5,80 0,75 0,70 L0,10 C0,5 5,0 10,0 Z M15,5 C8,5 5,8 5,15 L5,65 C5,72 8,75 15,75 C22,75 40,60 40,40 C40,20 22,5 15,5 Z"/></svg>');
-        }
-
-        /* گوشه پایین چپ */
-        .gold-frame::after {
-            bottom: 5px;
-            left: 5px;
-            transform: rotate(180deg);
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="%23d4af37" d="M10,0 C25,0 50,15 50,40 C50,65 25,80 10,80 C5,80 0,75 0,70 L0,10 C0,5 5,0 10,0 Z M15,5 C8,5 5,8 5,15 L5,65 C5,72 8,75 15,75 C22,75 40,60 40,40 C40,20 22,5 15,5 Z"/></svg>');
-        }
-
-        /* سایر بخش‌های کارت */
         .card-content {
             padding: 0 25px 30px;
         }
@@ -206,7 +172,6 @@
             margin-bottom: 25px;
         }
 
-        /* بخش اطلاعات مراسم */
         .info-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -239,7 +204,6 @@
             margin-top: 3px;
         }
 
-        /* تایمر معکوس */
         .timer-box {
             background: #faf0e8;
             border: 1px dashed #d9b8a8;
@@ -277,7 +241,6 @@
             color: #7a6a68;
         }
 
-        /* موزیک پلیر */
         .music-box {
             background: #f4e4dc;
             border-radius: 35px;
@@ -308,7 +271,6 @@
             font-size: 14px;
         }
 
-        /* دکمه نشان */
         .neshan-btn {
             display: flex;
             align-items: center;
@@ -333,7 +295,7 @@
 </head>
 <body>
 
-    <!-- لایه پاکت نامه و مهر مومی (لوکس) -->
+    <!-- لایه پاکت نامه و مهر مومی -->
     <div class="envelope-container" id="envelope">
         <div class="god-text">In the name of god</div>
         <div class="wax-seal-btn" onclick="openEnvelope()">
@@ -342,16 +304,13 @@
         <div class="click-hint">جهت بازکردن پاکت کلیک کنید</div>
     </div>
 
-    <!-- کارت اصلی با عکس شما -->
+    <!-- کارت اصلی -->
     <div class="card" id="card">
-        
-        <!-- عکس شما با فریم طلایی -->
         <div class="photo-container">
-            <img src="my-wedding-photo.jpg" alt="عکس عروس و داماد فائزه و ایمان">
+            <img src="my-wedding-photo.jpg" alt="عکس عروس و داماد">
             <div class="gold-frame"></div>
         </div>
 
-        <!-- محتوای متنی کارت -->
         <div class="card-content">
             <div class="names">فائزه <span>♡</span> ایمان</div>
 
@@ -360,7 +319,6 @@
                 شادی‌مان را کامل کنید...
             </p>
 
-            <!-- اطلاعات زمان و مکان -->
             <div class="info-grid">
                 <div class="info-card">
                     <span class="icon">📅</span>
@@ -379,7 +337,6 @@
                 </div>
             </div>
 
-            <!-- تایمر معکوس -->
             <div class="timer-box">
                 <div class="timer-title">♡ تا روز شیرین ما ♡</div>
                 <div class="timer-counts">
@@ -393,13 +350,12 @@
             <!-- موزیک پلیر -->
             <div class="music-box">
                 <span class="music-info">🎵 موسیقی ما</span>
-                <button class="play-btn" id="playBtn" onclick="toggleAudio()">▶</button>
+                <button class="play-btn" id="playBtn" onclick="toggleAudio()">⏸</button>
                 <audio id="myAudio" loop>
-                    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                    <source src="wedding-song.mp3" type="audio/mpeg">
                 </audio>
             </div>
 
-            <!-- دکمه مسیریابی -->
             <a href="https://nshn.ir/" target="_blank" class="neshan-btn">
                 📍 مشاهده مسیر در نشان
             </a>
@@ -407,18 +363,22 @@
     </div>
 
     <script>
-        // باز کردن پاکت
-        function openEnvelope() {
-            document.getElementById('envelope').classList.add('open');
-            document.getElementById('card').classList.add('show');
-            document.body.style.overflowY = 'auto'; // فعال کردن اسکرول
-            toggleAudio(); // پخش موزیک با لمس مهر مومی
-        }
-
-        // کنترول موزیک
         const audio = document.getElementById("myAudio");
         const playBtn = document.getElementById("playBtn");
 
+        // باز کردن پاکت و پرش از ۴ ثانیه اول برای پخش فوری
+        function openEnvelope() {
+            document.getElementById('envelope').classList.add('open');
+            document.getElementById('card').classList.add('show');
+            document.body.style.overflowY = 'auto';
+            
+            // پرش از ۴ ثانیه اول و پخش فوری
+            audio.currentTime = 4;
+            audio.play();
+            playBtn.innerText = "⏸";
+        }
+
+        // دکمه کنترل دستی موزیک (پخش / توقف)
         function toggleAudio() {
             if (audio.paused) {
                 audio.play();
